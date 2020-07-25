@@ -32,7 +32,9 @@
     "webpack-serve": "^0.3.1"
   },
   "dependencies": {
-    "prop-types": "^15.6.1"
+    "hashids": "^2.2.1",
+    "prop-types": "^15.6.1",
+    "shortid": "^2.2.15"
   },
   "peerDependencies": {
     "react": "^16"

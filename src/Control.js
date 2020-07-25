@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Hashids from 'hashids';
+const hashids = new Hashids('The Saturday Quiz', 0,  '0123456789abcdefghijklmnopqrstuvwxyz_-')
+
+const now = new Date();  
+const seconds_since_epoch = Math.round(now.getTime() / 1000)
+const hashid = hashids.encode(seconds_since_epoch)
 
 export default class Control extends React.Component {
   static propTypes = {
@@ -10,7 +16,7 @@ export default class Control extends React.Component {
   }
 
   static defaultProps = {
-    value: '',
+    value: hashid,
   }
 
   render() {
@@ -27,7 +33,11 @@ export default class Control extends React.Component {
         id={forID}
         className={classNameWrapper}
         value={value || ''}
+        style={{
+          color: '#cdcdcd',
+        }}
         onChange={e => onChange(e.target.value)}
+        disabled
       />
     );
   }
